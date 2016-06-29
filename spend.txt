@@ -35,3 +35,6 @@ INSERT spend ( date, inorex, price ,class, remark) VALUES ('2016-06-30', '支出
 --查詢日期為2016-6-29的資料
 SELECT * FROM spend WHERE date='2016-06-29';
 
+--將價錢為80的那筆資料修改為85
+update spend set price = 85 where price = 80;
+
