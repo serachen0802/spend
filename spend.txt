@@ -1,0 +1,37 @@
+ --家庭收支表--
+ --進入mysql
+ $ mysql -uroot -p
+ 
+ --建資料庫並編碼
+ create database spend default character set utf8; 
+ 
+ --建立資料表
+ create table spend
+(
+  cid int auto_increment not null primary key,
+  date date not null,
+  inorex varchar(10) null,
+  price int(15) null,
+  class varchar(20) null,
+  remark varchar(100) null,
+  balance int(20) null
+);
+
+--cid 使用者的id 主鍵
+--date 記帳日期
+--inorex 收入或支出
+--price 價格
+--class 收支類別
+--remark 備註
+--balance 餘額(以收入減去支出做運算)
+
+
+--新增一筆資料
+INSERT spend ( date, inorex, price ,class, remark) VALUES ('2016-06-10', '收入', '25000' ,'薪資','六月份');
+INSERT spend ( date, inorex, price ,class, remark) VALUES ('2016-06-29', '支出', '80' ,'午餐', '烏龍麵');
+INSERT spend ( date, inorex, price ,class) VALUES ('2016-06-29', '收入', '100' ,'撿到');
+INSERT spend ( date, inorex, price ,class, remark) VALUES ('2016-06-30', '支出', '60' ,'早餐','三明治、飲料');
+
+--查詢日期為2016-6-29的資料
+SELECT * FROM spend WHERE date='2016-06-29';
+
